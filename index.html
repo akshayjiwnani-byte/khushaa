@@ -9,41 +9,31 @@
 
   html, body {
     margin: 0;
-    height: 100%;
+    padding: 0;
+    min-height: 100vh;
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    padding: 20px;
   }
 
   .login-container {
-    position: relative;
-    width: 100%;
     max-width: 400px;
-    height: 100%;
-    overflow-y: auto; /* scrollable on mobile */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
+    margin: 50px auto; /* centers horizontally and leaves space on top */
+    position: relative;
+    z-index: 1;
   }
 
   .login-box {
-    position: relative;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.95);
     padding: 40px;
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 0 25px rgba(0,0,0,0.2);
-    z-index: 1;
-    width: 100%;
-    box-sizing: border-box;
   }
 
   h1 {
@@ -93,103 +83,5 @@
     font-weight: bold;
   }
 
-  .confetti {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    opacity: 0.7;
-    animation: fall linear infinite;
-  }
-
-  @keyframes fall {
-    0% { transform: translateY(-10px) rotate(0deg); }
-    100% { transform: translateY(110vh) rotate(360deg); }
-  }
-
-  .balloons {
-    position: absolute;
-    bottom: -50px;
-    left: 20%;
-    animation: float 6s ease-in-out infinite alternate;
-  }
-
-  .balloons img {
-    width: 60px;
-    margin: 0 10px;
-  }
-
-  @keyframes float {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-150px); }
-  }
-</style>
-</head>
-<body>
-
-<div class="login-container">
-  <div class="login-box">
-    <h1>🎉 Surprise! 🎉</h1>
-    <p id="prompt"></p>
-    <input type="password" id="password" placeholder="Password" />
-    <br>
-    <button onclick="checkPassword()">Open 🎂</button>
-    <p id="error"></p>
-  </div>
-</div>
-
-<script>
-  // Array of fun birthday prompts
-  const prompts = [
-    "Type the magic word to unlock the birthday surprise! 🎂",
-    "Enter the secret code to open your birthday adventure! 🎉",
-    "What’s the password to unveil the birthday fun? 🎈",
-    "Put in the special word and let the birthday magic begin! 🌈",
-    "Unlock the birthday excitement — password please! ✨",
-    "Enter the key to your birthday treasure! 🎁",
-    "Only the secret password can open the birthday party! 🥳",
-    "Type the special word to step into the birthday celebration! 💖"
-  ];
-
-  // Show a random prompt each time the page loads
-  document.getElementById('prompt').textContent = prompts[Math.floor(Math.random() * prompts.length)];
-
-  function checkPassword() {
-    const input = document.getElementById('password').value;
-    const correctPassword = "Khushii@2510"; // change your password
-    if(input === correctPassword){
-      alert("🎉Awesome! You cracked it — Password Accepted. Enjoy the surprise! 🎊");
-      window.location.href = "khushii_birthday_site.html"; // main birthday page
-    } else {
-      document.getElementById('error').textContent = "Incorrect password! Try again 🎈";
-    }
-  }
-
-  // Allow Enter key to submit password
-  const passwordInput = document.getElementById('password');
-  passwordInput.addEventListener('keydown', function(e){
-    if(e.key === 'Enter'){
-      e.preventDefault();
-      checkPassword();
-    }
-  });
-
-  // Scroll input into view on mobile
-  passwordInput.addEventListener('focus', () => {
-    setTimeout(() => {
-      passwordInput.scrollIntoView({behavior: 'smooth', block: 'center'});
-    }, 300);
-  });
-
-  // Simple confetti effect
-  for(let i=0; i<100; i++){
-    const confetti = document.createElement('div');
-    confetti.className = 'confetti';
-    confetti.style.left = Math.random()*100 + 'vw';
-    confetti.style.animationDuration = (2 + Math.random()*3) + 's';
-    confetti.style.background = `hsl(${Math.random()*360}, 70%, 60%)`;
-    document.body.appendChild(confetti);
-  }
-</script>
-
-</body>
-</html>
+  .confetti, .balloons {
+    position: fixed;
