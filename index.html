@@ -7,29 +7,31 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-  body {
+  html, body {
     margin: 0;
-    height: 100vh;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    overflow: hidden;
+  }
+
+  body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-    overflow: hidden;
-    font-family: 'Arial', sans-serif;
   }
 
-  .confetti {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #fff;
-    opacity: 0.7;
-    animation: fall linear infinite;
-  }
-
-  @keyframes fall {
-    0% { transform: translateY(-10px) rotate(0deg); }
-    100% { transform: translateY(110vh) rotate(360deg); }
+  .login-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    overflow-y: auto; /* scrollable on mobile */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
   }
 
   .login-box {
@@ -40,6 +42,8 @@
     text-align: center;
     box-shadow: 0 0 25px rgba(0,0,0,0.2);
     z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   h1 {
@@ -57,7 +61,8 @@
 
   input[type="password"] {
     padding: 12px;
-    width: 220px;
+    width: 100%;
+    max-width: 220px;
     margin-bottom: 15px;
     border-radius: 10px;
     border: 2px solid #ff4081;
@@ -88,6 +93,19 @@
     font-weight: bold;
   }
 
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0.7;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-10px) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+  }
+
   .balloons {
     position: absolute;
     bottom: -50px;
@@ -108,13 +126,15 @@
 </head>
 <body>
 
-<div class="login-box">
-  <h1>🎉 Surprise! 🎉</h1>
-  <p id="prompt"></p>
-  <input type="password" id="password" placeholder="Password" />
-  <br>
-  <button onclick="checkPassword()">Open 🎂</button>
-  <p id="error"></p>
+<div class="login-container">
+  <div class="login-box">
+    <h1>🎉 Surprise! 🎉</h1>
+    <p id="prompt"></p>
+    <input type="password" id="password" placeholder="Password" />
+    <br>
+    <button onclick="checkPassword()">Open 🎂</button>
+    <p id="error"></p>
+  </div>
 </div>
 
 <script>
@@ -144,6 +164,22 @@
     }
   }
 
+  // Allow Enter key to submit password
+  const passwordInput = document.getElementById('password');
+  passwordInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+      e.preventDefault();
+      checkPassword();
+    }
+  });
+
+  // Scroll input into view on mobile
+  passwordInput.addEventListener('focus', () => {
+    setTimeout(() => {
+      passwordInput.scrollIntoView({behavior: 'smooth', block: 'center'});
+    }, 300);
+  });
+
   // Simple confetti effect
   for(let i=0; i<100; i++){
     const confetti = document.createElement('div');
@@ -157,6 +193,3 @@
 
 </body>
 </html>
-
-
-
