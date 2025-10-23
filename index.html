@@ -49,6 +49,12 @@
     margin: 0 0 20px 0;
   }
 
+  p#prompt {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
   input[type="password"] {
     padding: 12px;
     width: 220px;
@@ -104,18 +110,39 @@
 
 <div class="login-box">
   <h1>🎉 Surprise! 🎉</h1>
-  <p>Enter the secret password to reveal the birthday magic:</p>
+  <p id="prompt"></p>
   <input type="password" id="password" placeholder="Password" />
   <br>
   <button onclick="checkPassword()">Open 🎂</button>
   <p id="error"></p>
 </div>
 
+<!-- Balloons -->
+<div class="balloons">
+  <img src="https://i.ibb.co/7Y2f6rG/balloon1.png" alt="balloon">
+  <img src="https://i.ibb.co/8mJ5xgK/balloon2.png" alt="balloon">
+  <img src="https://i.ibb.co/B6qJzv9/balloon3.png" alt="balloon">
+</div>
 
 <script>
+  // Array of fun birthday prompts
+  const prompts = [
+    "Type the magic word to unlock the birthday surprise! 🎂",
+    "Enter the secret code to open your birthday adventure! 🎉",
+    "What’s the password to unveil the birthday fun? 🎈",
+    "Put in the special word and let the birthday magic begin! 🌈",
+    "Unlock the birthday excitement — password please! ✨",
+    "Enter the key to your birthday treasure! 🎁",
+    "Only the secret password can open the birthday party! 🥳",
+    "Type the special word to step into the birthday celebration! 💖"
+  ];
+
+  // Show a random prompt each time the page loads
+  document.getElementById('prompt').textContent = prompts[Math.floor(Math.random() * prompts.length)];
+
   function checkPassword() {
     const input = document.getElementById('password').value;
-    const correctPassword = "Khushii@2510"; // change your password
+    const correctPassword = "happyBirthday"; // change your password
     if(input === correctPassword){
       alert("🎉 Password correct! Enjoy the surprise! 🎉");
       window.location.href = "khushii_birthday_site.html"; // main birthday page
