@@ -6,12 +6,51 @@
   <title>Happy Birthday Khushaa👸</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    body {
-      overflow-x: hidden;
+    /* 💖 Pulsing music icon styles */
+    .music-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      background-color: #ff4081;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      cursor: pointer;
+      z-index: 9999;
+      transition: background 0.3s ease;
     }
 
-    .music-btn {
-      display: none; /* hidden now, since music starts automatically */
+    .music-icon:hover {
+      background-color: #e73370;
+    }
+
+    .music-icon::before {
+      content: "🎵";
+      font-size: 26px;
+    }
+
+    /* Pulse animation when playing */
+    .music-icon.playing {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.7);
+      }
+      70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 15px rgba(255, 64, 129, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 64, 129, 0);
+      }
     }
   </style>
 </head>
@@ -19,34 +58,45 @@
   <div class="container">
     <header class="hero">
       <img src="photo.png" alt="Khushii" class="hero-photo">
-      <h1>Happy Birthday, <span class="name">Khushiiii</span> ❤️</h1>
-      <p class="subtitle">pov:Celebrating my favorite human today — The Khushii Goplani🎉💖</p>
+      <h1>Happy Birthday,<span class="name">Khushiiii</span>❤️</h1>
+      <p class="subtitle">POV:celebrating my favorite human today — The Khushii Goplani🎉💖</p>
     </header>
 
     <section class="message">
 
-      <p class="emph">Happiest Birthday to the most amazing person ever💖</p>
-      <p>Turning 25 on 25th October 2025! A quarter-century of amazing YOU!</p>
-      <p> From sending Birthday Text to giving Birthday Card to creating a web-page, Here we go... </p>
-      <p> Khushiii Khushii Khushiii, kyaa bolu aur kyaa likhu tere baare mein? </p>
-      <p>Agar tujhe paa liya, phir aur kuch paane ki icha hi nhi rahegi. Agar tujhe khoo diya, phir kuch paane hi icha hi nhi rahegi</p>
-      <p>Tumhe paana to sab chahenge, lekin tum sirf uske hona jo tumhe khone se dare..</p>
-      <p>Dard ye hai ki mein tumhe kho na dun, lekin sach ye h ki mein tumhe paya hi kaha tha</p>
-      <p>Happiest moments were those nights when we talked for hours, like the world outside us didn't exist. Jab chand par dil aa jaaye toh Sitaron par kaha nazar padti hai</p>
-      <p>Wishing you a day full of love, joy, and all the little things that make you happiest. Keep shining like the queen you are 👑✨. Love you tons! </p>
-    </section>
+      <p class="emph">Happiest Birthday to the most Amazing person ever — CEO of Healthy Grains🌾</p>
+      <p>Turning 25 on 25th October,2025! A quarter-century of amazing YOU!</p>
+      <p>From sending Birthday Text to giving Birthday Card to creating a web-page, Here we go...🏁 </p>
+      <p>It feels unreal that it’s been almost 10 years since we first met back in Megha classes😆</p>
+      <p>From that day till now, you’ve always been someone truly special to me😍 </p>
+      <p>Happiest moments were those nights when we talked for hours, like the world outside us didn't exist🥹</p>
+      <p>No matter how much time passes, you’ll always hold a special place in my heart❣️</p>
+      <p>You truely makes my life beautiful just by being in it😌</p>
+      <p>Isi baat par ek shayari ho jaaye: Agar tujhe paa liya, phir aur kuch paane ki icha hi nhi rahegi. Agar tujhe khoo diya, phir kuch paane hi icha hi nhi rahegi💯</p>    
+      
+      </section>
 
     <section class="wishes">
-      <h2>Wishes from Friends</h2>
+      <h2>कुछ बातें जो बस आपके लिए हैं</h2>
       <ul>
-        <li>May your days be as bright as your smile!</li>
-        <li>Keep shining, Khushii — you deserve the world.</li>
-        <li>More laughter, less stress, and endless cake 🍰</li>
+
+            <li>उसे पहली दफ़ा देखते ही लगा था, इसे तो कमाना पड़ेगा 😍💖</li>
+            <li>यह दुआओं में कुबूल हो जाये, ये मुम्किन नहीं 🙏✨</li>
+            <li>यह शायद उनमें से है जिनके लिए महल मिनारे बनाए जाते थे 🏰🌟</li>
+            <li>चेहरे पर ऐसा नूर जिसे देखकर इंसान अपने सारे घम भुला दे 🌞🌸</li>
+            <li>इतनी गहरी आखें कि समुद्र भी शर्मा जाए 🌊👀</li>
+            <li>जो चीर कर अंदर की रूँ तक को देख ले 💫💖</li>
+            <li>वो सब देख ले जिसे आज तक मैंने अंदर दफन कर के रखा है 💌🔒</li>
+            <li>जिसे खुद खुदाने महपत की मिट्टी से बनाया हो 🌟🙏</li>
+            <li>जब उसे मुस्कुराता हुआ देखा, तो मैंने अपने साथ हुई तमाम जुल्म और नाइंसाफियों को भुला दिया, सबको माफ़ कर दिया 😊💛</li>
+            <li>जब उसे पहली दफ़ा देखते ही लगा था, इसे तो कमाना पड़ेगा 😍💖</li>
+            <li>ये दुआओं में कुबूल हो जाए ये मुम्किन नहीं 🙏✨</li>
       </ul>
     </section>
 
     <footer class="footer">
-      <p>Made with ❤️ for Khushii</p>
+      <p> Once again, Happiest 25th Birthday🥂❤️ </p></p>
+      <p> Akshayyyyy </p></p>
     </footer>
   </div>
 
@@ -59,43 +109,56 @@
     <div class="balloon b5"></div>
   </div>
   
-    <!-- 🎵 Background Music -->
+     <!-- 🎵 Background Music -->
   <audio id="bg-music" autoplay loop muted>
     <source src="song.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
+  <!-- 🎵 Music Icon Button -->
+  <div class="music-icon playing" id="music-icon"></div>
+
   <script>
     const music = document.getElementById('bg-music');
+    const icon = document.getElementById('music-icon');
+    let isPlaying = true;
 
-    // Attempt autoplay with fade-in
+    // Fade in the music automatically when the site loads
     window.addEventListener('DOMContentLoaded', () => {
       const playPromise = music.play();
       if (playPromise !== undefined) {
-        playPromise
-          .then(() => fadeInMusic())
-          .catch(err => {
-            console.warn('Autoplay blocked. User interaction required:', err);
-          });
+        playPromise.then(() => fadeInMusic()).catch(() => {
+          console.warn('Autoplay blocked by browser.');
+        });
       } else {
         fadeInMusic();
       }
     });
 
-    // Fade-in function
     function fadeInMusic() {
       music.muted = false;
       music.volume = 0;
       const fadeInterval = setInterval(() => {
         if (music.volume < 1) {
-          music.volume = Math.min(1, music.volume + 0.02); // smooth increase
+          music.volume = Math.min(1, music.volume + 0.02);
         } else {
           clearInterval(fadeInterval);
         }
-      }, 100); // increases every 100ms → ~5 seconds fade-in
+      }, 100);
     }
-  </script>
 
+    // Toggle play/pause on icon click
+    icon.addEventListener('click', () => {
+      if (isPlaying) {
+        music.pause();
+        icon.classList.remove('playing');
+      } else {
+        music.play();
+        icon.classList.add('playing');
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
   
   <script src="script.js"></script>
 </body>
