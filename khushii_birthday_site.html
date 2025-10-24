@@ -5,30 +5,20 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Happy Birthday Khushaa👸</title>
   <link rel="stylesheet" href="styles.css">
- <style>
-    .music-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 10px 18px;
-      font-size: 16px;
-      background-color: #ff4081;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      transition: background 0.3s;
+  <style>
+    body {
+      overflow-x: hidden;
     }
-    .music-btn:hover {
-      background-color: #e73370;
+
+    .music-btn {
+      display: none; /* hidden now, since music starts automatically */
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header class="hero">
-      <img src="photo.jpg" alt="Khushii" class="hero-photo">
+      <img src="photo.png" alt="Khushii" class="hero-photo">
       <h1>Happy Birthday, <span class="name">Khushiiii</span> ❤️</h1>
       <p class="subtitle">pov:Celebrating my favorite human today — The Khushii Goplani🎉💖</p>
     </header>
@@ -68,20 +58,41 @@
     <div class="balloon b4"></div>
     <div class="balloon b5"></div>
   </div>
-  <!-- 🎵 Background Music -->
+  
+    <!-- 🎵 Background Music -->
   <audio id="bg-music" autoplay loop muted>
     <source src="song.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- 🔊 Unmute button -->
-  <button class="music-btn" onclick="unmuteMusic()">Play Sound 🎶</button>
-
   <script>
-    function unmuteMusic() {
-      const music = document.getElementById('bg-music');
+    const music = document.getElementById('bg-music');
+
+    // Attempt autoplay with fade-in
+    window.addEventListener('DOMContentLoaded', () => {
+      const playPromise = music.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => fadeInMusic())
+          .catch(err => {
+            console.warn('Autoplay blocked. User interaction required:', err);
+          });
+      } else {
+        fadeInMusic();
+      }
+    });
+
+    // Fade-in function
+    function fadeInMusic() {
       music.muted = false;
-      music.play();
+      music.volume = 0;
+      const fadeInterval = setInterval(() => {
+        if (music.volume < 1) {
+          music.volume = Math.min(1, music.volume + 0.02); // smooth increase
+        } else {
+          clearInterval(fadeInterval);
+        }
+      }, 100); // increases every 100ms → ~5 seconds fade-in
     }
   </script>
 
