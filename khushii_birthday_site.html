@@ -67,14 +67,29 @@
   
   <script src="script.js"></script>
 
-<!-- Music Player -->
+<!-- Music Player with Play/Pause Toggle -->
 <div style="text-align:center; margin:30px 0;">
   <audio id="birthday-music" src="song.mp3"></audio>
-  <button onclick="document.getElementById('birthday-music').play();" 
+  <button id="music-btn" 
           style="padding:10px 20px; font-size:1em; border-radius:5px; cursor:pointer; background-color:#ff3366; color:white; border:none;">
-    🎵 Play me 
+    🎵 Play Birthday Song
   </button>
 </div>
+
+<script>
+  const music = document.getElementById('birthday-music');
+  const btn = document.getElementById('music-btn');
+
+  btn.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+      btn.textContent = "⏸️ Pause Birthday Song";
+    } else {
+      music.pause();
+      btn.textContent = "🎵 Play Birthday Song";
+    }
+  });
+</script>
 
     
 </body>
