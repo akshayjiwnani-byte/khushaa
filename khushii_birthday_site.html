@@ -5,54 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Happy Birthday Khushaa👸</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* 💖 Pulsing music icon styles */
-    .music-icon {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 55px;
-      height: 55px;
-      background-color: #ff4081;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      cursor: pointer;
-      z-index: 9999;
-      transition: background 0.3s ease;
-    }
-
-    .music-icon:hover {
-      background-color: #e73370;
-    }
-
-    .music-icon::before {
-      content: "🎵";
-      font-size: 26px;
-    }
-
-    /* Pulse animation when playing */
-    .music-icon.playing {
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.7);
-      }
-      70% {
-        transform: scale(1.1);
-        box-shadow: 0 0 0 15px rgba(255, 64, 129, 0);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(255, 64, 129, 0);
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="container">
@@ -94,25 +46,11 @@
 </section>
  </div>
 
-<section class="birthday-ending">
-    Once again, Happiest 25th Birthday🥂❤️
-  </h2>
-  <p style="font-size:1.5em; color:#333; font-weight:bold; letter-spacing:1px;">
-    Akshayyyy.
-  </p>
-  <div style="font-size:3em; margin-top:20px; animation: float 2s ease-in-out infinite alternate;">
-    🎂🎁🎈
-  </div>
-</section>
-
-<style>
-@keyframes float {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-15px); }
-}
-</style>
-
-  
+     <section class="birthday-ending">
+      <h2>Once again, Happiest 25th Birthday🥂❤️ </h2>
+       <p>  Akshayyyy.</p>
+     </section>
+ 
 
   <!-- floating balloons -->
   <div class="balloons" aria-hidden="true">
@@ -122,57 +60,6 @@
     <div class="balloon b4"></div>
     <div class="balloon b5"></div>
   </div>
-  
-     <!-- 🎵 Background Music -->
-  <audio id="bg-music" autoplay loop muted>
-    <source src="song.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- 🎵 Music Icon Button -->
-  <div class="music-icon playing" id="music-icon"></div>
-
-  <script>
-    const music = document.getElementById('bg-music');
-    const icon = document.getElementById('music-icon');
-    let isPlaying = true;
-
-    // Fade in the music automatically when the site loads
-    window.addEventListener('DOMContentLoaded', () => {
-      const playPromise = music.play();
-      if (playPromise !== undefined) {
-        playPromise.then(() => fadeInMusic()).catch(() => {
-          console.warn('Autoplay blocked by browser.');
-        });
-      } else {
-        fadeInMusic();
-      }
-    });
-
-    function fadeInMusic() {
-      music.muted = false;
-      music.volume = 0;
-      const fadeInterval = setInterval(() => {
-        if (music.volume < 1) {
-          music.volume = Math.min(1, music.volume + 0.02);
-        } else {
-          clearInterval(fadeInterval);
-        }
-      }, 100);
-    }
-
-    // Toggle play/pause on icon click
-    icon.addEventListener('click', () => {
-      if (isPlaying) {
-        music.pause();
-        icon.classList.remove('playing');
-      } else {
-        music.play();
-        icon.classList.add('playing');
-      }
-      isPlaying = !isPlaying;
-    });
-  </script>
   
   <script src="script.js"></script>
 </body>
